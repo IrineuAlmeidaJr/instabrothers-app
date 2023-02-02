@@ -40,7 +40,7 @@ export function Brother(brother: Brother) {
                     () => null                                     
                 }
             >
-                <View className='rounded-full border-4 border-background'>
+                <View className='rounded-full border-4 border- border-background'>
                     <Image 
                         className="bg-white rounded-full"
                         style={{width: DAY_SIZE, height: DAY_SIZE}}
