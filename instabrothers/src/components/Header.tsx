@@ -11,8 +11,7 @@ export function Header() {
     const state = useNavigationState(state => state);
     const routeName = (state.routeNames[state.index]);
 
-    return (
-        
+    return (        
         <View className="w-full flex-row items-center justify-between">
             {
                 routeName === 'home' &&               
@@ -35,7 +34,7 @@ export function Header() {
                 </TouchableOpacity>
             }
 
-            <TouchableOpacity
+            {/* <TouchableOpacity
             activeOpacity={0.7}
             className="flex-row h-10 px-4 border bg-white border-slate-200 rounded-lg items-center"
             onPress={() => navigate('allbrothersfollower')}
@@ -50,7 +49,7 @@ export function Header() {
                     Todos
                 </Text>
 
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             
         </View>
     )

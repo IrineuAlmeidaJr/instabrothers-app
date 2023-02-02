@@ -54,7 +54,9 @@ export function DetailsBrother(){
                         </View>                        
                 </View>
                     
-                <LineChart />                
+                <LineChart
+                    name={brother.name}
+                />                
                 
             </View>
         </View>
