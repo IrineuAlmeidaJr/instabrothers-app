@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Text, ScrollView, View, Alert} from "react-native";
-import { api } from "../lib/axios";
+import { apiGetAllBrothers } from "../lib/axios";
 import { Brother } from "./Brother";
 import { LoadingText } from "./LoadingText";
 
@@ -17,7 +17,7 @@ export function ShowBrothers() {
 
     function fetchData() {
         try {
-            api.get("brothers")
+            apiGetAllBrothers
             .then(response => {
                 setBrothers(response.data.brothers)
                 setInitialsFollowers(response.data.followers_before)
@@ -34,23 +34,23 @@ export function ShowBrothers() {
 
     return (
         <ScrollView 
-            showsVerticalScrollIndicator={false}
-            className="flex-1 px-4 bg-blue-400"
+        showsVerticalScrollIndicator={false}
+        className="flex-1 px-4  bg-blue-400"
         >
             {
                 brothers.length > 0 ?                
-                <View  className="flex-row flex-wrap justify-center items-center">
+                <View  className="pb-16 flex-row flex-wrap justify-center items-center">
                     {
                         brothers.map((brother, index) => {
                             return(
                                 <Brother 
-                                    key={index} 
-                                    name={brother.name} 
-                                    user_instagram={brother.instagram_username}
-                                    followers_before={initialsFollowers[index]}
-                                    followers_current={brother.followers}
-                                    url_img={brother.url_image}
-                                    isDetailsBrother={true}
+                                key={index} 
+                                name={brother.name} 
+                                user_instagram={brother.instagram_username}
+                                followers_before={initialsFollowers[index]}
+                                followers_current={brother.followers}
+                                url_img={brother.url_image}
+                                isDetailsBrother={true}
                                 />
                             )
                         })
@@ -59,7 +59,7 @@ export function ShowBrothers() {
                 :                
                 <LoadingText 
                     text="Carregando Brothers..."
-                    subText="Esse processo pode demorar um pouco"
+                    subText="Esse processo pode demorar um pouco na primeira vez"
                 />
             }
         </ScrollView>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Alert } from "react-native";
 import { ScrollView, View, Text } from "react-native";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory-native";
-import { api } from "../lib/axios";
+import { apiGetDetailsBrother } from "../lib/axios";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { LoadingText } from "./LoadingText";
@@ -21,7 +21,7 @@ export function LineChart({ name }: NameProps) {
 
     function fetchData() {
         try {
-            api.get(`brother/${name}`)
+            apiGetDetailsBrother(name)
             .then(response  => {              
                 setDataDetailsBrother(response.data)
             })

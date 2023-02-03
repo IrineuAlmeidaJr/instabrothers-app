@@ -3,8 +3,8 @@ import {createNativeStackNavigator } from '@react-navigation/native-stack';
 const { Navigator, Screen } = createNativeStackNavigator(); 
 
 import { Home } from '../screens/Home'
-import { AllBrothersFollower } from '../screens/AllBrotherFollower'
 import { DetailsBrother } from '../screens/DetailsBrother';
+import { RankingBrothers } from '../screens/RankingBrothers'
 
 export function AppRoutes(){
     return (        
@@ -20,8 +20,8 @@ export function AppRoutes(){
             />
 
             <Screen
-                name="allbrothersfollower"
-                component={AllBrothersFollower}
+                name="rankingbrothers"
+                component={RankingBrothers}
             />
         </Navigator>
     );
