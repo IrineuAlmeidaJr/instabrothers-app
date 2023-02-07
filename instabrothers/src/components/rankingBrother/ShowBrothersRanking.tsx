@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import { Alert, ScrollView, View } from "react-native"
 
-import { apiGetRanking } from "../lib/axios"
+import { apiGetRanking } from "../../lib/axios"
 
 import { BrotherRanking } from "./BrotherRanking"
-import { LoadingText } from "./LoadingText"
+import { LoadingText } from "../loadings/LoadingText"
 
-type BrotherRanking = {
+interface BrotherRanking {
     name: string,
     followers: number,
     url_image: string,
@@ -34,7 +34,7 @@ export function ShowBrothersRanking() {
     return(
         <ScrollView
         showsVerticalScrollIndicator={false}
-        className="flex-1 px-8  bg-background"
+        className="flex-1"
         >
             {
                 brothersRanking ?              

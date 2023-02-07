@@ -7,7 +7,7 @@ import {
 } from '@expo-google-fonts/inter';
 
 
-import { Loading } from './components/Loading';
+import { Loading } from './components/loadings/Loading';
 import { Routes } from './routes';
 import { StatusBar } from 'expo-status-bar';
 
@@ -28,7 +28,7 @@ export default function App() {
   return (
     <>
       <Routes />
-      <StatusBar style="light" />
+      <StatusBar style="inverted" />
     </>
     
   );

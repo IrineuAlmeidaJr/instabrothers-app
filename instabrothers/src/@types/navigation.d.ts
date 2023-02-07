@@ -4,6 +4,7 @@ export declare global {
             home: undefined;
             detailsbrother: Brother;
             rankingbrothers: undefined;
+            feed: undefined;
         }
     }
 }

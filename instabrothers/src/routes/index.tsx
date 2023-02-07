@@ -16,6 +16,6 @@ export function Routes(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#357AE8'
+        backgroundColor: '#F3BC7B'
     }
 })

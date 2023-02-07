@@ -1,8 +1,8 @@
 import axios from "axios"
 
 const api = axios.create({
-    // baseURL: "https://instabrothers-api.onrender.com/"
-    baseURL: "http://127.0.0.1:5000/"
+    baseURL: "https://instabrothers-bbb-api.onrender.com"
+    // baseURL: "http://127.0.0.1:5000/"
 })
 
 export const apiGetAllBrothers = api.get("brothers");

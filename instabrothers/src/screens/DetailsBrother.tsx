@@ -2,17 +2,24 @@ import { useRoute } from "@react-navigation/native";
 import { View, Text, Platform, Dimensions } from "react-native";
 
 import { Header } from "../components/Header";
-import { Brother } from "../components/Brother";
+import { Brother } from "../components/home/Brother";
 import { Follower } from "../icons/Follower";
-import { LineChart } from "../components/LineChart";
+import { LineChart } from "../components/detailsBrother/LineChart";
 
 
 interface Brother {
+    id:number;
     name: string;
-    user_instagram: string;
-    followers_before: number;
-    followers_current: number;
-    url_img: string;
+    userInstagram: string;
+    followersBefore: number;
+    followersCurrent: number;
+    urlImg: string;
+
+    inGame?: boolean;
+    leader?: number;
+    angel?: number;    
+    monster?: Array<number>; 
+    wall?: Array<number>;  
 }
 
 export function DetailsBrother(){
@@ -27,17 +34,24 @@ export function DetailsBrother(){
     }
 
     return (
-        <View className="flex-1 bg-background px-4 pt-12 justify-center items-center">
+        <View className="flex-1 bg-orange-300 px-4 pt-12 justify-center items-center">
             <Header />
-            <View className="mt-4 flex-1 items-center">
+            <View className="flex-1 items-center">
                 <Brother 
-                     key={`${brother}-2`} 
-                     name={brother.name} 
-                     user_instagram={brother.user_instagram}
-                     followers_before={brother.followers_before}
-                     followers_current={brother.followers_current}
-                     url_img={brother.url_img}
-                     isDetailsBrother={false}
+                key={`${brother}-2`}
+                id={brother.id}
+                name={brother.name} 
+                userInstagram={brother.userInstagram}
+                followersBefore={brother.followersBefore}
+                followersCurrent={brother.followersCurrent}
+                urlImg={brother.urlImg}
+                isDetailsBrother={false}
+
+                inGame={brother?.inGame}
+                angel={brother?.angel}
+                leader={brother?.leader}
+                monster={brother?.monster}
+                wall={brother?.wall}  
                 />
                 
                 <View className="justify-center items-center">
@@ -45,11 +59,11 @@ export function DetailsBrother(){
 
                         <View className="flex-row mt-3 justify-center items-center">
                             <Text className="text-white font-semibold text-lg">
-                                Antes: {brother.followers_before.toLocaleString('pt-BR')}
+                                Antes: {brother.followersBefore.toLocaleString('pt-BR')}
                             </Text>
 
                             <Text className="ml-4 text-white font-semibold text-lg">
-                                Atual: { brother.followers_current.toLocaleString('pt-BR')}
+                                Atual: { brother.followersCurrent.toLocaleString('pt-BR')}
                             </Text>
                         </View>                        
                 </View>

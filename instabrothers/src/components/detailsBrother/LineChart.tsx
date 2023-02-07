@@ -1,23 +1,40 @@
 import { useEffect, useState } from "react";
-import { Alert } from "react-native";
+import { Alert, } from "react-native";
 import { ScrollView, View, Text } from "react-native";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory-native";
-import { apiGetDetailsBrother } from "../lib/axios";
+import { apiGetDetailsBrother } from "../../lib/axios";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { LoadingText } from "./LoadingText";
+import { LoadingText } from "../loadings/LoadingText";
 
 interface NameProps {
     name: string;
 }
 
-type DetailsBrother = {
-    days: Array<string>;
-    followers: Array<number>;
+interface DetailsBrother {   
+    chart: {
+        days: Array<string>;
+        followers: Array<number>;
+    },
+    text: {
+        days: Array<string>;
+        followers: Array<number>;
+    }   
 }
 
 export function LineChart({ name }: NameProps) {
-    const [dataDetailsBrother, setDataDetailsBrother] = useState<DetailsBrother>({ days:[], followers:[] })
+    const [dataDetailsBrother, setDataDetailsBrother] = useState<DetailsBrother>(
+       {
+        chart: {
+            days: [],
+            followers: [],
+        },
+        text: {
+            days: [],
+            followers: []
+        }   
+       }
+    )
 
     function fetchData() {
         try {
@@ -40,10 +57,10 @@ export function LineChart({ name }: NameProps) {
             showsVerticalScrollIndicator={false} 
         >
             <View 
-                className="mt-2 bg-white rounded-lg w-[92%]"
+                className="bg-white rounded-lg w-auto justify-center items-center"
             >
                 {
-                    dataDetailsBrother.days.length > 0 ?   
+                    dataDetailsBrother.chart.days.length > 0 ?   
                     <>           
                         <VictoryChart                      
                             theme={ VictoryTheme.material }                    
@@ -53,7 +70,7 @@ export function LineChart({ name }: NameProps) {
                             data: { stroke: "#FF0000" },
                             parent: { border: "1px solid #FFF"}
                             }}
-                            data={dataDetailsBrother.followers.slice(1)}
+                            data={dataDetailsBrother.chart.followers.slice(1)}
                             animate={{
                                 duration: 4000,
                                 onLoad: { duration: 2000 }
@@ -61,19 +78,21 @@ export function LineChart({ name }: NameProps) {
                         />
                         </VictoryChart>   
 
-                        <View className="mt-2 pb-16 bg-white w-full justify-center items-center">    
+                        <View 
+                            className="mt-2 pb-16 bg-white w-full justify-center items-center"
+                        >    
                             <Text className="mb-4 font-bold text-base">
                                 DETALHADO    
                             </Text>
                             <View >
                             {
-                                dataDetailsBrother.days[0] &&
-                                dataDetailsBrother.days.map((day: string, index: number) => {                            
+                                dataDetailsBrother.text.days[0] &&
+                                dataDetailsBrother.text.days.map((day: string, index: number) => {                            
                                     if (index > 0) {
-                                        if (dataDetailsBrother.followers[index] > dataDetailsBrother.followers[index-1]) {
+                                        if (dataDetailsBrother.text.followers[index] > dataDetailsBrother.text.followers[index-1]) {
                                             return (                                           
                                                 <View key={day} className="flex-row">                                                                     
-                                                    <Text className="font-regular text-base text-green-600">
+                                                    <Text className="mr-4 font-semibold text-base text-green-600">
                                                         {day.split('-').reverse().join('/')}
                                                     </Text> 
                                                     < MaterialCommunityIcons 
@@ -81,15 +100,15 @@ export function LineChart({ name }: NameProps) {
                                                         color='green'
                                                         size={20}
                                                     />  
-                                                    <Text className="ml-4 font-regular text-base text-green-600">
-                                                        {(dataDetailsBrother.followers[index]*1000).toLocaleString("pt-BR")}
+                                                    <Text className="ml-4 font-semibold text-base text-green-600">
+                                                        {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
                                                     </Text>                                              
                                                 </ View>
                                             )
                                         } else {
                                             return (                                           
                                                 <View key={day} className="flex-row">                                                                     
-                                                    <Text className="font-regular text-base text-red-600">
+                                                    <Text className="mr-4 font-semibold text-base text-red-600">
                                                         {day.split('-').reverse().join('/')}
                                                     </Text>  
                                                     < MaterialCommunityIcons 
@@ -97,8 +116,8 @@ export function LineChart({ name }: NameProps) {
                                                         color='red'
                                                         size={20}
                                                     />  
-                                                    <Text className="ml-4 font-regular text-base text-red-600">
-                                                        {(dataDetailsBrother.followers[index]*1000).toLocaleString("pt-BR")}
+                                                    <Text className="ml-4 font-semibold text-base text-red-600">
+                                                        {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
                                                     </Text>    
                                                 </ View>
                                             )
@@ -107,16 +126,16 @@ export function LineChart({ name }: NameProps) {
                                     
                                     return (                                           
                                         <View key={day} className="flex-row">                                                                     
-                                            <Text className="font-regular text-base text-gray-800">
+                                            <Text className="mr-4 font-semibold text-base text-gray-800">
                                                 {day.split('-').reverse().join('/')}
                                             </Text> 
                                                 < MaterialCommunityIcons 
-                                                    name="square-small"
+                                                    name="arrow-right"
                                                     color='black'
                                                     size={20}
                                                 />   
-                                            <Text className="ml-4 font-regular text-base text-gray-800">
-                                                {(dataDetailsBrother.followers[index]*1000).toLocaleString("pt-BR")}
+                                            <Text className="ml-4 font-semibold text-base text-gray-800">
+                                                {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
                                             </Text>    
                                         </ View>
                                     )

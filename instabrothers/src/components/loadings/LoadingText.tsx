@@ -6,7 +6,7 @@ interface LoadingTextProps {
     subText?: string;
 }
 
-export function LoadingText({ text = "Carregando", subText = "" }: LoadingTextProps) {
+export function LoadingText({ text = "Carregando...", subText = "" }: LoadingTextProps) {
     const state = useNavigationState(state => state);
     const routeName = (state.routeNames[state.index]);
 
@@ -16,11 +16,11 @@ export function LoadingText({ text = "Carregando", subText = "" }: LoadingTextPr
                 className="justify-center items-center"
             >
                 <ActivityIndicator 
-                    color="#357AE8"
+                    color="#F99B16"
                     size="large"
                 />
     
-                <Text className="font-extrabold text-base text-background">
+                <Text className="mt-2 font-extrabold text-base text-orange-400">
                     {text.toUpperCase()}
                 </Text>
                 
