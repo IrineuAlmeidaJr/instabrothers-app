@@ -46,11 +46,11 @@ export function ShowBrothers() {
     return (
         <ScrollView 
         showsVerticalScrollIndicator={false}
-        className="flex-1 px-4 py-2  bg-orange-300"
+        className="flex-1 px-4 py-4 pt-40  bg-orange-300"
         >
             {
                 brothers.length > 0 && statusBrothers ?                
-                <View  className="pb-16 flex-row flex-wrap justify-center items-center">
+                <View  className="pb-44 flex-row flex-wrap justify-center items-center">
                     {
                         brothers.map((brother, index) => (                            
                             <Brother 

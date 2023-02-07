@@ -3,13 +3,13 @@ import { Text, View, Image, TouchableOpacity, Linking } from "react-native";
 export function NewsFeed() {
 
     return (
-        <View className="bg-orange-200 my-2 px-4 py-2 rounded-md">
+        <View className="bg-orange-300 my-2 px-4 py-2 rounded-md">
             <TouchableOpacity 
                 className="flex-row justify-center items-center gap-1"
                 onPress={() => Linking.openURL(`https://gshow.globo.com/realities/bbb/bbb-23/jogo-discordia/ao-vivo/bbb-23-acompanhe-o-quarto-jogo-da-discordia.ghtml`)}
             >
                 <Text
-                className="text-orange-400 text-lg text-center font-bold"
+                className="text-white text-lg text-center font-bold"
                 >
                     Brothers distribuem placas no Jogo da Discórdia
                 </Text>

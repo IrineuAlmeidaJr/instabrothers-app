@@ -7,8 +7,8 @@ export function ShowFeed() {
         // Fazer um código na Back que retorna as noticias com os links
         <ScrollView 
         showsVerticalScrollIndicator={false}
-        className="flex-1 mx-4 ">
-            <View className="pb-16">           
+        className="flex-1 mx-4 pt-60">
+            <View className="pb-72">           
                 {/* Tera um Map com as noticias aqui. Reperti só para teste */}
                 <NewsFeed />
                 <NewsFeed />

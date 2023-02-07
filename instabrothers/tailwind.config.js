@@ -14,6 +14,12 @@ module.exports = {
         semibold: 'Inter_600SemiBold',
         bold: 'Inter_700Bold',
         extrabold: 'Inter_800ExtraBold'
+      },
+      spacing: {
+        '13': '3.25rem',
+        '15': '3.75rem',
+        '128': '32rem',
+        '144': '36rem',
       }
     },
   },

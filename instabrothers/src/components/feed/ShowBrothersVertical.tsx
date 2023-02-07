@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Alert, ScrollView, View } from "react-native";
+import { Alert, Platform, ScrollView, View } from "react-native";
 import { apiGetRanking } from "../../lib/axios";
-import { LoadingText } from "../loadings/LoadingText";
+import { Loading } from "../loadings/Loading";
 import { BrotherVertical } from "./BrotherVertical";
 
 interface Brother {
@@ -30,16 +30,28 @@ export function ShowBrothersVertical() {
     }, [])
 
     return (
-        <View>            
-            <ScrollView
-            horizontal={true}
-            showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false}
-            className="bg-orange-200 w-full mt-4 mb-1"
-            >
-                {
-                    brothers ? 
-                    <View className="flex-row">
+        <View 
+        className={`
+        bg-orange-300 
+        w-full
+        mt-4 
+        mb-1 
+        shadow-2xl
+        shadow-black
+        ${Platform.OS === "android" ? 
+            "shadow-xl shadow-black"
+            :
+            "shadow-sm shadow-orange-900"
+        }
+        `}>  
+            {
+                brothers ?                  
+                <ScrollView
+                horizontal={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+                >                    
+                    <View className="flex-row justify-center items-center">
                     {
                         brothers &&
                         brothers.map((brother, index) => (
@@ -51,14 +63,13 @@ export function ShowBrothersVertical() {
                             />
                         ))
                     }
-                    </View>
-                    :
-                    <LoadingText
-                    text="Carregando Ranking..."
-                    />
-                }
-                
-            </ScrollView>
+                    </View>          
+                </ScrollView>  
+                : 
+                <View className="my-4 h-16">
+                    <Loading /> 
+                </View>                
+            }
         </View>
     )
 }

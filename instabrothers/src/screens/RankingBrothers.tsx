@@ -1,6 +1,6 @@
 import { View, Alert } from "react-native";
 
-import { BackButton } from "../components/BackButton";
+import { BackButton } from "../components/buttons/BackButton";
 import { ShowBrothersRanking } from "../components/rankingBrother/ShowBrothersRanking";
 
 
