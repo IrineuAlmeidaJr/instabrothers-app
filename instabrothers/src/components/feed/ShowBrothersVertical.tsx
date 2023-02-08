@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Alert, Platform, ScrollView, View } from "react-native";
-import { apiGetRanking } from "../../lib/axios";
+import { apiGetCompareFollowers } from "../../lib/axios";
 import { Loading } from "../loadings/Loading";
 import { BrotherVertical } from "./BrotherVertical";
 
 interface Brother {
     name: string,
-    followers: number,
+    new_followers: number,
     url_image: string,
 }
 
@@ -15,7 +15,7 @@ export function ShowBrothersVertical() {
 
     function fetchDataBrothers() {
         try {
-            apiGetRanking
+            apiGetCompareFollowers
             .then((response) => {
                 setBrothers(response.data)
             })
@@ -58,7 +58,7 @@ export function ShowBrothersVertical() {
                             <BrotherVertical
                             key={`${brother}-${index}`} 
                             name={brother.name} 
-                            followers={brother.followers}
+                            new_followers={brother.new_followers}
                             url_imgage={brother.url_image}
                             />
                         ))

@@ -8,7 +8,7 @@ export function Home() {
     
     return (
         <View className="flex-1 bg-orange-300">    
-            <View className="w-full h-14 absolute z-10 top-0 bg-orange-300 opacity-80" /> 
+            <View className="w-full h-14 absolute z-10 bg-orange-300 opacity-80" /> 
             <View 
             className={`}
             absolute

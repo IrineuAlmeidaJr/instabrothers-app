@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 interface Brother {
     name: string;
-    followers: number;
+    new_followers: number;
     url_imgage: string;
 }
 
@@ -59,7 +59,7 @@ export function BrotherVertical(brother: Brother){
                 </View>   
 
                 {
-                    brother.followers >= 0 ?
+                    brother.new_followers >= 0 ?
                     <View className="flex-row items-center justify-center -ml-2">
                         <View className="mt-1 ">
                             <MaterialCommunityIcons 
@@ -70,10 +70,9 @@ export function BrotherVertical(brother: Brother){
                         </View>                   
                         <Text
                         className="mt-2 text-white text-sm font-semibold text-center "
-                        >     
-                            +150 
+                        >    
                             {
-                                // brother.followers.toLocaleString('pt-BR')
+                                brother.new_followers.toLocaleString('pt-BR')
                             }
                         </Text> 
                     </View>
@@ -88,10 +87,9 @@ export function BrotherVertical(brother: Brother){
                         </View>                   
                         <Text
                         className="mt-2 text-white text-sm font-semibold text-center "
-                        >     
-                            -523              
+                        >                
                             {
-                                // brother.followers.toLocaleString('pt-BR')
+                                 brother.new_followers.toLocaleString('pt-BR')
                             }
                         </Text> 
                     </View>

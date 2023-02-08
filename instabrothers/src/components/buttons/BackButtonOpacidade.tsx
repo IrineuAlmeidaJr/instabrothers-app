@@ -11,21 +11,17 @@ export function BackButtonOpacidade() {
         activeOpacity={0.7}
         className={`
         absolute
-        z-10
+        top-10
+        h-auto 
+        mx-3
+        p-2
+        z-20
         shadow-md 
         shadow-orange-900
-        top-12
-        w-[92%] 
-        h-auto 
-        borde-2
-        mx-3
-        p-1
-        items-center 
-        justify-center          
         bg-orange-400 
         rounded-full
         ${Platform.OS === "android" ? 
-        "shadow-md"
+        "shadow-lg"
         : 
         "shadow-sm"}        
         shadow-orange-700
