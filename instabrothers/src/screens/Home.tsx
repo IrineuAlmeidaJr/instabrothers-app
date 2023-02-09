@@ -1,20 +1,23 @@
-import { View, Platform } from "react-native";
+import { Platform, View } from "react-native";
 
-import { Header } from "../components/Header";
-import { ShowBrothers } from "../components/home/ShowBrothers";
+import { ButtonToAllBrothers } from "../components/buttons/ButtonToAllBrothers";
+import { ShowBrothersVertical } from "../components/compHome/ShowBrothersVertical";
+import { ShowDate } from "../components/compHome/ShowDate";
+import { ShowNews } from "../components/compHome/ShowNews";
 
 export function Home() {
-
-    
     return (
-        <View className="flex-1 bg-orange-300">    
-            <View className="w-full h-14 absolute z-10 bg-orange-300 opacity-80" /> 
+        <View
+        className="flex-1 bg-orange-200"
+        >
+            <View className="w-full h-36 absolute z-10 top-0 bg-orange-200 opacity-80" /> 
+            <ButtonToAllBrothers />
             <View 
-            className={`}
+            className={`
             absolute
+            w-screen
             z-10 
-            top-12 
-            bg-orange-300
+            top-11
             shadow-md 
             shadow-orange-900
             ${Platform.OS === "android" ? 
@@ -22,13 +25,11 @@ export function Home() {
                 :
                 "shadow-md shadow-orange-900"
             }
-            `}>
-                <View className="bg-orange-200">
-                    <Header /> 
-                </View>                
+            `}>   
+                <ShowDate />             
+                <ShowBrothersVertical />
             </View>
-            < ShowBrothers />
+            <ShowNews />
         </View>
     )
 }
-

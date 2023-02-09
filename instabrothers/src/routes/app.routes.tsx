@@ -2,17 +2,23 @@ import {createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const { Navigator, Screen } = createNativeStackNavigator(); 
 
-import { Home } from '../screens/Home'
+import { AllBrothers } from '../screens/AllBrothers'
 import { DetailsBrother } from '../screens/DetailsBrother';
 import { RankingBrothers } from '../screens/RankingBrothers'
-import { Feed } from '../screens/Feed';
+import { Home } from '../screens/Home';
+import { DetailsBrotherInFeed } from '../screens/DatailsBrotherInFeed';
 
 export function AppRoutes(){
     return (        
-        <Navigator screenOptions={{ headerShown: false }} initialRouteName="home" >                
+        <Navigator screenOptions={{ headerShown: false }} initialRouteName="home" >    
             <Screen
                 name="home"
                 component={Home}
+            />
+
+            <Screen
+                name="allbrothers"
+                component={AllBrothers}
             />           
 
             <Screen
@@ -26,8 +32,8 @@ export function AppRoutes(){
             />
 
             <Screen
-                name="feed"
-                component={Feed}
+                name="detailsbrotherinfeed"
+                component={DetailsBrotherInFeed}
             />
         </Navigator>
     );

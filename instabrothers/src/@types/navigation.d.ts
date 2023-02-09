@@ -2,9 +2,10 @@ export declare global {
     namespace ReactNavigation {
         interface RootParamList {
             home: undefined;
+            allbrothers: undefined;
             detailsbrother: Brother;
-            rankingbrothers: undefined;
-            feed: undefined;
+            rankingbrothers: undefined;            
+            detailsbrotherinfeed: Brother;
         }
     }
 }

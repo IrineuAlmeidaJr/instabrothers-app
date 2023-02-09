@@ -6,10 +6,10 @@ interface NewsProps {
     image: string;
 }
 
-export function NewsFeed(news: NewsProps) {
+export function ItemNews(news: NewsProps) {
 
     return (
-        <View className="bg-orange-300 my-2 px-4 py-2 rounded-md">
+        <View className="bg-orange-300 my-3 px-4 py-2 rounded-md">
             <TouchableOpacity 
                 className="flex-row justify-center items-center gap-1"
                 onPress={() => Linking.openURL(news.url_news)}

@@ -1,9 +1,9 @@
 import { useRoute } from "@react-navigation/native";
 import { View, Text, Platform, Dimensions } from "react-native";
 
-import { Brother } from "../components/home/Brother";
+import { Brother } from "../components/compAllBrothers/Brother";
 import { Follower } from "../icons/Follower";
-import { LineChart } from "../components/detailsBrother/LineChart";
+import { LineChart } from "../components/compDetailsBrother/LineChart";
 import { BackButton } from "../components/buttons/BackButton";
 
 

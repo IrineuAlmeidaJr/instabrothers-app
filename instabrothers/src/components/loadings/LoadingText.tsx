@@ -36,15 +36,15 @@ export function LoadingText({ text = "Carregando...", subText = "" }: LoadingTex
             className="flex-1 h-[75vh] justify-center items-center"
         >
             <ActivityIndicator 
-                color="white"
+                color="orange"
                 size="large"
             />
 
-            <Text className="mt-2 font-extrabold text-base text-white">
+            <Text className="mt-2 font-extrabold text-base text-orange-500">
                 {text.toUpperCase()}
             </Text>
             
-            <Text className="mt-1 text-center font-extrabold text-base text-white">
+            <Text className="mt-1 text-center font-extrabold text-base text-orange-400">
                 {subText}
             </Text>            
         </View>

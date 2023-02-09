@@ -5,19 +5,36 @@ import { Loading } from "../loadings/Loading";
 import { BrotherVertical } from "./BrotherVertical";
 
 interface Brother {
+    id: number,
     name: string,
-    new_followers: number,
+    followers: number,
+    instagram_username: string,
     url_image: string,
+    new_followers: number
+}
+
+interface StatusBrothers {
+    angel: number;
+    in_game: Array<number>;
+    leader: number;
+    monster: Array<number>;
+    wall: Array<number>;
+}
+
+interface BrothersData {
+    brothers: Array<Brother>;
+    followers_before: Array<number>;
+    status_brothers: StatusBrothers;
 }
 
 export function ShowBrothersVertical() {
-    const [brothers, setBrothers] = useState<Brother[] | null >(null)
+    const [data, setData] = useState<BrothersData | null >(null)
 
     function fetchDataBrothers() {
         try {
             apiGetCompareFollowers
             .then((response) => {
-                setBrothers(response.data)
+                setData(response.data)
             })
         } catch (err) {
             console.log(`Erro: ${err}`)
@@ -45,7 +62,7 @@ export function ShowBrothersVertical() {
         }
         `}>  
             {
-                brothers ?                  
+                data ?                  
                 <ScrollView
                 horizontal={true}
                 showsVerticalScrollIndicator={false}
@@ -53,13 +70,22 @@ export function ShowBrothersVertical() {
                 >                    
                     <View className="flex-row justify-center items-center">
                     {
-                        brothers &&
-                        brothers.map((brother, index) => (
+                        data &&
+                        data.brothers.map((brother, index) => (
                             <BrotherVertical
                             key={`${brother}-${index}`} 
+                            id={brother.id}
                             name={brother.name} 
-                            new_followers={brother.new_followers}
-                            url_imgage={brother.url_image}
+                            userInstagram={brother.instagram_username}
+                            followers={brother.followers}
+                            newFollowers={brother.new_followers}
+                            urlImg={brother.url_image}
+    
+                            inGame= {data.status_brothers?.in_game.includes(brother.id)}
+                            angel= {data.status_brothers.angel}
+                            leader= {data.status_brothers.leader}
+                            monster= {data.status_brothers.monster}
+                            wall={data.status_brothers.wall}
                             />
                         ))
                     }

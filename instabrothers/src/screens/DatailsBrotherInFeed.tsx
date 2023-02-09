@@ -1,28 +1,28 @@
 import { useRoute } from "@react-navigation/native";
 import { View, Text, Platform } from "react-native";
 
-import { Brother } from "../components/home/Brother";
+import { Brother } from "../components/compAllBrothers/Brother";
 import { Follower } from "../icons/Follower";
-import { LineChart } from "../components/detailsBrother/LineChart";
+import { LineChart } from "../components/compDetailsBrother/LineChart";
 import { BackButton } from "../components/buttons/BackButton";
 
 
 interface Brother {
-    id:number;
-    name: string;
+    id: number;
+    name: string; 
     userInstagram: string;
-    followersBefore: number;
-    followersCurrent: number;
+    followers: number;
+    newFollowers: number;
     urlImg: string;
 
-    inGame?: boolean;
-    leader?: number;
-    angel?: number;    
-    monster?: Array<number>; 
-    wall?: Array<number>;  
+    angel: number;
+    inGame: boolean;
+    leader: number;
+    monster: Array<number>;
+    wall: Array<number>;
 }
 
-export function DetailsBrother(){
+export function DetailsBrotherInFeed(){
     const route = useRoute();
     const brother = route.params as Brother;
     
@@ -42,8 +42,8 @@ export function DetailsBrother(){
                 id={brother.id}
                 name={brother.name} 
                 userInstagram={brother.userInstagram}
-                followersBefore={brother.followersBefore}
-                followersCurrent={brother.followersCurrent}
+                followersBefore= {0}
+                followersCurrent={brother.followers}
                 urlImg={brother.urlImg}
                 isDetailsBrother={false}
 
@@ -58,12 +58,8 @@ export function DetailsBrother(){
                         <Follower />
 
                         <View className="flex-row mt-3 justify-center items-center">
-                            <Text className="text-white font-semibold text-lg">
-                                Antes: {brother.followersBefore.toLocaleString('pt-BR')}
-                            </Text>
-
                             <Text className="ml-4 text-white font-semibold text-lg">
-                                Atual: { brother.followersCurrent.toLocaleString('pt-BR')}
+                                Atual: { brother.followers.toLocaleString('pt-BR')}
                             </Text>
                         </View>                        
                 </View>

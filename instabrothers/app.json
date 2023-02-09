@@ -18,14 +18,20 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true, 
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-1821993809983279~4548172953"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#F3BC7B"
       },
-      "package": "com.irineualmeidajr.instabrothers"
+      "package": "com.irineualmeidajr.instabrothers",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-1821993809983279~4548172953"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

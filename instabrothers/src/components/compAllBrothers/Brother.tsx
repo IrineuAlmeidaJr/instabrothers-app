@@ -59,8 +59,8 @@ export function Brother(brother: Brother) {
                 )
                 :
                 () => null                                     
-            }
-            >
+                }
+                >
                 {
                     brother?.inGame ?
                     <View className='items-center'>

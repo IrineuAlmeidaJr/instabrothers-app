@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Alert, ScrollView, View } from "react-native";
 import { apiGetNews } from "../../lib/axios";
+import { BannerAdmob } from "../BannerAdmob";
 import { LoadingText } from "../loadings/LoadingText";
-import { NewsFeed } from "./NewsFeed";
+import { ItemNews } from "./ItemNews";
 
 interface News {
     title: string;
@@ -10,7 +11,7 @@ interface News {
     image: string;
 }
 
-export function ShowFeed() {
+export function ShowNews() {
     const [news, setNews] = useState<News[] | null >(null)
 
     function fetchNews() {
@@ -34,11 +35,12 @@ export function ShowFeed() {
         <ScrollView 
         showsVerticalScrollIndicator={false}
         className="flex-1 mx-4 pt-60">
-            <View className="pb-72">           
+            <View className="pb-72">       
+                < BannerAdmob />    
                 {
                     news ?
                     news.map((newsItem, index) => (
-                        <NewsFeed
+                        <ItemNews
                         key={`${newsItem.title}-${index}`}
                         title={newsItem.title}
                         url_news={newsItem.url_news}
@@ -47,11 +49,11 @@ export function ShowFeed() {
                     ))
                     :
                     <View className="h-96 justify-center">
-                       <LoadingText 
+                        <LoadingText 
                         text="Carregando Notícias..."
+                        subText="Esse processo pode demorar um pouco na primeira vez"
                         />
-                    </View>
-                    
+                    </View>                    
                 }                
             </View>
         </ScrollView>

@@ -46,7 +46,7 @@ export function ShowBrothers() {
     return (
         <ScrollView 
         showsVerticalScrollIndicator={false}
-        className="flex-1 px-4 py-4 pt-40  bg-orange-300"
+        className="flex-1 px-4 py-4 pt-36  bg-orange-300"
         >
             {
                 brothers.length > 0 && statusBrothers ?                

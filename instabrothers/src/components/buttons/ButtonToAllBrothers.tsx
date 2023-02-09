@@ -1,10 +1,11 @@
+
 import { TouchableOpacity, Platform } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 
-export function BackButtonOpacidade() {
-    const { goBack } = useNavigation();
+export function ButtonToAllBrothers() {
+    const { navigate } = useNavigation();
 
     return(
         <TouchableOpacity
@@ -13,7 +14,7 @@ export function BackButtonOpacidade() {
         absolute
         top-10
         h-auto 
-        mx-3
+        ml-7
         p-2
         z-20
         shadow-md 
@@ -26,10 +27,10 @@ export function BackButtonOpacidade() {
         "shadow-sm"}        
         shadow-orange-700
         `}
-        onPress={goBack}
+        onPress={() => navigate('allbrothers')}
         >
-            < Feather 
-                name={"arrow-left"}
+            < MaterialCommunityIcons 
+                name={"account-details"}
                 color='white'
                 size={28}
             />
