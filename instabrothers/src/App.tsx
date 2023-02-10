@@ -10,6 +10,7 @@ import {
 import { Loading } from './components/loadings/Loading';
 import { Routes } from './routes';
 import { StatusBar } from 'expo-status-bar';
+import { Platform } from 'react-native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ 
@@ -25,10 +26,15 @@ export default function App() {
     );
   }
 
+  if(Platform.OS === 'android') { 
+    require('intl'); 
+    require('intl/locale-data/jsonp/pt-BR'); 
+  }
+
   return (
     <>
       <Routes />
-      <StatusBar style="inverted" />
+      <StatusBar style="auto" />
     </>
     
   );

@@ -1,4 +1,5 @@
 import { Platform, View } from "react-native";
+import { ButtonSponsor } from "../components/buttons/ButtonSponsor";
 
 import { ButtonToAllBrothers } from "../components/buttons/ButtonToAllBrothers";
 import { ShowBrothersVertical } from "../components/compHome/ShowBrothersVertical";
@@ -12,6 +13,7 @@ export function Home() {
         >
             <View className="w-full h-36 absolute z-10 top-0 bg-orange-200 opacity-80" /> 
             <ButtonToAllBrothers />
+            <ButtonSponsor />
             <View 
             className={`
             absolute

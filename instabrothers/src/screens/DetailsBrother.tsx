@@ -25,11 +25,6 @@ interface Brother {
 export function DetailsBrother(){
     const route = useRoute();
     const brother = route.params as Brother;
-    
-    if(Platform.OS === 'android') { 
-        require('intl'); 
-        require('intl/locale-data/jsonp/pt-BR'); 
-    }
 
     return (
         <View className="flex-1 bg-orange-300 px-4 pt-12 justify-center items-center">
