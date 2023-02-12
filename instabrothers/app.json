@@ -18,20 +18,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true, 
-      "config": {
-        "googleMobileAdsAppId": "ca-app-pub-1821993809983279~4548172953"
-      }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.roinusoftware.instabrothers"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#F3BC7B"
       },
-      "package": "com.irineualmeidajr.instabrothers",
-      "config": {
-        "googleMobileAdsAppId": "ca-app-pub-1821993809983279~4548172953"
-      }
+      "package": "com.irineualmeidajr.instabrothers"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -41,5 +36,9 @@
         "projectId": "d122c8de-ae06-4996-bc07-4b34e1d2565b"
       }
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-1821993809983279~4548172953",
+    "ios_app_id": "ca-app-pub-1821993809983279~4548172953"
   }
 }

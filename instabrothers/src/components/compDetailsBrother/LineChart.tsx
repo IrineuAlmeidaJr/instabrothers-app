@@ -151,7 +151,7 @@ export function LineChart({ name }: NameProps) {
                                       
                 }    
             </View>
-            
+
         </ScrollView>
     )
 }

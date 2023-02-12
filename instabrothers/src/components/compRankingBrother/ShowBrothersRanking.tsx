@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
-import { Alert, ScrollView, View } from "react-native"
+import { Alert, ScrollView, TouchableOpacity, View } from "react-native"
 
 import { apiGetRanking } from "../../lib/axios"
 
 import { BrotherRanking } from "./BrotherRanking"
 import { LoadingText } from "../loadings/LoadingText"
+import { LargeBanner } from "../Announcement/LargeBanner"
 
 interface BrotherRanking {
     name: string,
@@ -34,8 +35,9 @@ export function ShowBrothersRanking() {
     return(
         <ScrollView
         showsVerticalScrollIndicator={false}
-        className="flex-1"
+        className="flex-1 pt-6"
         >
+            <LargeBanner />
             {
                 brothersRanking ?              
                 <View className="flex-1 pb-16 justify-center items-center">
@@ -43,12 +45,11 @@ export function ShowBrothersRanking() {
                         brothersRanking &&
                         brothersRanking.map((brother, index) => (
                             <BrotherRanking
-                            key={`${brother}-${index}`} 
                             name={brother.name} 
                             followers={brother.followers}
                             url_imgage={brother.url_image}
                             position={index+1}
-                            />
+                            />                            
                         ))
                     }
                 </View>

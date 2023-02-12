@@ -23,6 +23,7 @@ export function BrotherVertical(brother: BrotherProps){
 
     return (
         <TouchableOpacity 
+            activeOpacity={0.7}
             onPress={                 
                 () => navigate(
                 'detailsbrotherinfeed', 

@@ -3,8 +3,18 @@
     "version": ">= 3.4.1"
   },
   "build": {
+    "development": {
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "buildConfiguration": "Debug"
+      }
+    }, 
     "preview": {
       "android": {
+        "distribution": "internal", 
         "buildType": "apk"
       }
     },

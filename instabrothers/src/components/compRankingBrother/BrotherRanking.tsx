@@ -1,4 +1,4 @@
-import { View, Image, Text, Platform } from "react-native";
+import { View, Image, Text, Platform, TouchableOpacity } from "react-native";
 
 interface Brother {
     name: string;
@@ -20,29 +20,33 @@ export function BrotherRanking(brother: Brother) {
         items-center 
         justify-between">
             <View>
-                <View 
-                className={`
-                rounded-full 
-                border-4 
-                border-orange-400 
-                ${Platform.OS === 'android' ? 
-                'shadow-2xl shadow-black' 
-                : 
-                'shadow-sm shadow-orange-900'}
-                `}>
-                    <Image 
-                        className="w-20 h-20 bg-white rounded-full "
-                        source={{
-                            uri: brother.url_imgage,
-                        }}
-                    /> 
-                    
-                </View> 
-                    <Text 
-                        className="mt-1 text-white text-lg font-semibold text-center mx-1"
-                    >
-                        {brother.position}º 
-                    </Text>   
+                <TouchableOpacity
+                activeOpacity={0.6}
+                >               
+                    <View 
+                    className={`
+                    rounded-full 
+                    border-4 
+                    border-orange-400 
+                    ${Platform.OS === 'android' ? 
+                    'shadow-2xl shadow-black' 
+                    : 
+                    'shadow-sm shadow-orange-900'}
+                    `}>
+                        <Image 
+                            className="w-20 h-20 bg-white rounded-full "
+                            source={{
+                                uri: brother.url_imgage,
+                            }}
+                        /> 
+                        
+                    </View> 
+                </TouchableOpacity>
+                <Text 
+                    className="mt-1 text-white text-lg font-semibold text-center mx-1"
+                >
+                    {brother.position}º 
+                </Text>   
             </View>      
                        
             <Text

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Alert, ScrollView, View } from "react-native";
 import { apiGetNews } from "../../lib/axios";
-import { BannerAdmob } from "../BannerAdmob";
+import { LargeBanner } from "../Announcement/LargeBanner";
 import { LoadingText } from "../loadings/LoadingText";
 import { ItemNews } from "./ItemNews";
 
@@ -35,17 +35,18 @@ export function ShowNews() {
         <ScrollView 
         showsVerticalScrollIndicator={false}
         className="flex-1 mx-4 pt-60">
-            <View className="pb-72">       
-                < BannerAdmob />    
+            <View className="pb-72">    
                 {
                     news ?
                     news.map((newsItem, index) => (
-                        <ItemNews
-                        key={`${newsItem.title}-${index}`}
-                        title={newsItem.title}
-                        url_news={newsItem.url_news}
-                        image={newsItem.image}
-                        />
+                        <View key={`${newsItem.title}-${index}`}>    
+                            <ItemNews                            
+                            title={newsItem.title}
+                            url_news={newsItem.url_news}
+                            image={newsItem.image}
+                            />                              
+                            <LargeBanner />
+                        </View>
                     ))
                     :
                     <View className="h-96 justify-center">

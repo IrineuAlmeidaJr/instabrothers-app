@@ -3,6 +3,7 @@ import { Text, ScrollView, View, Alert} from "react-native";
 import { apiGetAllBrothers } from "../../lib/axios";
 import { Brother } from "./Brother";
 import { LoadingText } from "../loadings/LoadingText";
+import { Banner } from "../Announcement/Banner";
 
 interface BrotherApi {       
     followers: number; 
@@ -48,9 +49,10 @@ export function ShowBrothers() {
         showsVerticalScrollIndicator={false}
         className="flex-1 px-4 py-4 pt-36  bg-orange-300"
         >
+            <Banner/>
             {
                 brothers.length > 0 && statusBrothers ?                
-                <View  className="pb-44 flex-row flex-wrap justify-center items-center">
+                <View  className="pt-4 pb-44 flex-row flex-wrap justify-center items-center">
                     {
                         brothers.map((brother, index) => (                            
                             <Brother 
