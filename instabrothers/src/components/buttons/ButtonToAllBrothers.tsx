@@ -30,7 +30,7 @@ export function ButtonToAllBrothers() {
         onPress={() => navigate('allbrothers')}
         >
             < MaterialCommunityIcons 
-                name={"account-details"}
+                name={"podium"}
                 color='white'
                 size={28}
             />

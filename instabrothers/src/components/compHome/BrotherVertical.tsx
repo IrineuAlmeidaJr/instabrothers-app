@@ -119,8 +119,7 @@ export function BrotherVertical(brother: BrotherProps){
                             }
                         </Text> 
                     </View>
-                }
-                                        
+                }                                        
             </View>
         </TouchableOpacity>
     )

@@ -84,59 +84,77 @@ export function LineChart({ name }: NameProps) {
                             <Text className="mb-4 font-bold text-base">
                                 DETALHADO    
                             </Text>
-                            <View >
+                            <View className="ml-[10%] justify-center items-center w-screen">
                             {
                                 dataDetailsBrother.text.days[0] &&
                                 dataDetailsBrother.text.days.map((day: string, index: number) => {                            
                                     if (index > 0) {
                                         if (dataDetailsBrother.text.followers[index] > dataDetailsBrother.text.followers[index-1]) {
                                             return (                                           
-                                                <View key={day} className="flex-row">                                                                     
-                                                    <Text className="mr-4 font-semibold text-base text-green-600">
-                                                        {day.split('-').reverse().join('/')}
-                                                    </Text> 
+                                                <View key={day} className="flex-row">
+                                                    <View className="w-28 justify-center items-start">
+                                                        <Text className="mr-4 font-semibold text-base text-green-600">
+                                                            {day.split('-').reverse().join('/')}
+                                                        </Text>     
+                                                    </View>
+                                                    
                                                     < MaterialCommunityIcons 
                                                         name="arrow-up-right-bold"
                                                         color='green'
                                                         size={20}
-                                                    />  
-                                                    <Text className="ml-4 font-semibold text-base text-green-600">
-                                                        {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
-                                                    </Text>                                              
+                                                    />
+                                                    
+                                                    <View className="w-32 justify-center items-start">
+                                                        <Text className="ml-4 font-semibold text-base text-green-600">
+                                                            {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
+                                                        </Text>  
+                                                    </View>                                            
                                                 </ View>
                                             )
                                         } else {
                                             return (                                           
-                                                <View key={day} className="flex-row">                                                                     
-                                                    <Text className="mr-4 font-semibold text-base text-red-600">
-                                                        {day.split('-').reverse().join('/')}
-                                                    </Text>  
+                                                <View key={day} className="flex-row">    
+                                                    <View className="w-28 justify-center items-start">
+                                                        <Text className="mr-4 font-semibold text-base text-red-500">
+                                                            {day.split('-').reverse().join('/')}
+                                                        </Text>     
+                                                    </View>  
+
                                                     < MaterialCommunityIcons 
                                                         name="arrow-down-right-bold"
                                                         color='red'
                                                         size={20}
-                                                    />  
-                                                    <Text className="ml-4 font-semibold text-base text-red-600">
-                                                        {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
-                                                    </Text>    
+                                                    />
+
+                                                    <View className="w-32 justify-center items-start">
+                                                        <Text className="ml-4 font-semibold text-base text-red-500">
+                                                            {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
+                                                        </Text>  
+                                                    </View>                                            
                                                 </ View>
                                             )
                                         }
                                     }                                
                                     
                                     return (                                           
-                                        <View key={day} className="flex-row">                                                                     
-                                            <Text className="mr-4 font-semibold text-base text-gray-800">
-                                                {day.split('-').reverse().join('/')}
-                                            </Text> 
-                                                < MaterialCommunityIcons 
-                                                    name="arrow-right"
-                                                    color='black'
-                                                    size={20}
-                                                />   
-                                            <Text className="ml-4 font-semibold text-base text-gray-800">
-                                                {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
-                                            </Text>    
+                                        <View key={day} className="flex-row">      
+                                            <View className="w-28 justify-center items-start">                                                               
+                                                <Text className="mr-4 font-semibold text-base text-gray-800">
+                                                    {day.split('-').reverse().join('/')}
+                                                </Text> 
+                                            </View>
+
+                                            < MaterialCommunityIcons 
+                                                name="arrow-right"
+                                                color='black'
+                                                size={20}
+                                            />   
+
+                                            <View className="w-28 justify-center items-start"> 
+                                                <Text className="ml-4 font-semibold text-base text-gray-800">
+                                                    {(dataDetailsBrother.text.followers[index]).toLocaleString("pt-BR")}
+                                                </Text>    
+                                            </View>
                                         </ View>
                                     )
                                 })

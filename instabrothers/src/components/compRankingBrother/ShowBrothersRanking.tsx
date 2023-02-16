@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Alert, ScrollView, TouchableOpacity, View } from "react-native"
+import { Alert, ScrollView, Text, TouchableOpacity, View } from "react-native"
 
 import { apiGetRanking } from "../../lib/axios"
 
